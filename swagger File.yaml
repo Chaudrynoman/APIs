@@ -1,0 +1,323 @@
+swagger: "2.0"
+info:
+  description: "Api Documentation by Muhammad Noman"
+  version: "1.0.0"
+  title: "Crud Application"
+  contact:
+    email: "choudrynoman1044@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3001"
+schemes:
+- "http"
+paths:
+  /signup:
+    post:
+      tags:
+      - "User"
+      summary: "To SignUP"
+      description: "This endpoint uses a post request Signup."
+      operationId: "addPet"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Plz Enter data of Employee"
+        required: true
+        schema:
+          $ref: "#/definitions/user"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: boolean
+               },
+             Message: {
+               type: "string"
+             }
+           }
+        "422":
+          description: "Invalid data"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+             }
+           }
+        "500":
+          description: "Unsuccessful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+            default: "Cast to ObjectId failed for value \"6315af1eb89b2acfc94e4\" (type string) at path \"_id\" for model \"Employee\""
+             }
+           }
+  /login:
+    post:
+      tags:
+      - "User"
+      summary: "Insert an Employee data"
+      description: ""
+      operationId: "placeOrder"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Plz Enter data of Employee"
+        required: true
+        schema:
+          $ref: "#/definitions/userlogin"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: boolean
+               },
+             Message: {
+               type: "string"
+             }
+           }
+        "422":
+          description: "Invalid data"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+             }
+           }
+           
+        "500":
+          description: "Unsuccessful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+            default: "Cast to ObjectId failed for value \"6315af1eb89b2acfc94e4\" (type string) at path \"_id\" for model \"Employee\""
+             }
+           }
+  /profile:
+    get:
+      tags:
+      - "User"
+      summary: "To see Profile"
+      description: "This endpoint uses a get request to see profile."
+      operationId: "seePet"
+      produces:
+      - "application/json"
+      parameters: [
+          {
+            "name": "authorizations",
+            "in": "header",
+            "description": "JWT access token",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: boolean
+               },
+             Message: {
+               type: "string"
+             }
+           }
+        "422":
+          description: "Invalid data"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+             }
+           }
+        "500":
+          description: "Unsuccessful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+            default: "Cast to ObjectId failed for value \"6315af1eb89b2acfc94e4\" (type string) at path \"_id\" for model \"Employee\""
+             }
+           }
+  /resetPassword:
+    put:
+      tags:
+      - "User"
+      summary: "Change Password"
+      description: "This can only be done by entering id and name of employee"
+      operationId: "updateUser"
+      produces:
+      - "application/json"
+      parameters: [
+          {
+            "name": "authorizations",
+            "in": "header",
+            "description": "JWT access token",
+            "required": true,
+            "type": "string"
+          },
+          {
+          "name": "oldPassword",
+            "in": "query",
+            "description": "Old Password",
+            "required": true,
+            "type": "string"
+          },
+           {
+          "name": "newPassword",
+            "in": "query",
+            "description": "New Password",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: boolean
+               },
+             Message: {
+               type: "string"
+             }
+           }
+        "500":
+          description: "Unsuccessful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+            default: "Cast to ObjectId failed for value \"6315af1eb89b2acfc94e4\" (type string) at path \"_id\" for model \"Employee\""
+             }
+           }
+  /stats:
+    get:
+      tags:
+      - "User"
+      summary: "To See User"
+      description: "This endpoint uses a get request to see all previous 6 month added users."
+      operationId: "seeusers"
+      produces:
+      - "application/json"
+      parameters: [
+          {
+            "name": "authorizations",
+            "in": "header",
+            "description": "JWT access token",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: boolean
+               },
+             Message: {
+               type: "string"
+             }
+           }
+        "422":
+          description: "Invalid data"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+             }
+           }
+        "500":
+          description: "Unsuccessful operation"
+          schema:
+           type: object
+           properties: {
+             success: {
+               type: "boolean",
+               default: false
+             },
+             err: { 
+            type: string,
+            default: "Cast to ObjectId failed for value \"6315af1eb89b2acfc94e4\" (type string) at path \"_id\" for model \"Employee\""
+             }
+           }
+  
+definitions:
+  user:
+    type: "object"
+    properties:
+      Name:
+        type: "string"
+      Email:
+        type: "string"
+      Password:
+        type: "string"
+      Role:
+        type: "string"
+  userlogin:
+    type: "object"
+    properties:
+      Email:
+        type: "string"
+      Password:
+        type: "string"
+  
