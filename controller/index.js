@@ -35,9 +35,7 @@ exports.postLogin = async(req, res, next) => {
             throw err;
     }
     catch(err){
-        const status=err.status || 500;
-        const message=err.message;
-        res.status(status).json({Sucess:false,Message:message});
+        next(err);
     }
   };
   exports.postSignup = async(req, res, next) => {
@@ -69,23 +67,19 @@ exports.postLogin = async(req, res, next) => {
         return res.status(201).json({Suceess:true,Message:"Sucessfully Registered!"});
     }
     catch(err){
-        const status=err.status || 500;
-        const message=err.message;
-        res.status(status).json({Sucess:false,Message:message});
+        next(err);
     }
 }
 exports.getprofile=async(req,res,next)=>{
     try
     {
         const id=req.userId;
-        const results = await userModel.findById(id);
+        const results = await userModel.findById(id).lean();
         return res.json({success: true, data: results ? results : {},Message:results ? "Sucessfully Don":"No Data Found"});
     }
     catch(err)
     {
-        const status=err.status || 500;
-        const message=err.message;
-        res.status(status).json({Sucess:false,Message:message});
+        next(err);
     }
 }
 exports.putPassword=async(req,res,next)=>{
@@ -111,9 +105,7 @@ exports.putPassword=async(req,res,next)=>{
         throw err;
     }
     catch(err){
-        const status=err.status || 500;
-        const message=err.message;
-        res.status(status).json({Sucess:false,Message:message});
+        next(err);
     }
 }
 exports.getstats=async(req,res,next)=>{
@@ -121,25 +113,27 @@ exports.getstats=async(req,res,next)=>{
     {
         const id=req.userId;
         const today = new Date();
-        const newuser = await userModel.findById(id);
+        const previse=today-(1000*60*60*24*30*6);
+        const newuser = await userModel.findById(id).lean();
         if(newuser.Role==="admin"){
-            const results = await userModel.aggregate([
-                { 
-                    $addFields: { 
-                        PreviousDate: { $subtract: [  today, (1000*60*60*24*30*6) ] } 
-                    } 
-                },
-                { 
-                    $group: { 
-                        _id: "$_id",
-                        Name: { "$first": "$Name" },
-                        count: { 
-                            $sum: { $cond: [ { $gte: [ "$Date", "$PreviousDate" ] }, 1, 0 ]  } 
-                        } 
-                    } 
-                },
-                { $match : { count: 1 } }
-              ])
+            const results=await userModel.where("Date").gte(previse).select("Name");
+            // const results = await userModel.aggregate([
+            //     { 
+            //         $addFields: { 
+            //             PreviousDate: { $subtract: [  today, (1000*60*60*24*30*6) ] } 
+            //         } 
+            //     },
+            //     { 
+            //         $group: { 
+            //             _id: "$_id",
+            //             Name: { "$first": "$Name" },
+            //             count: { 
+            //                 $sum: { $cond: [ { $gte: [ "$Date", "$PreviousDate" ] }, 1, 0 ]  } 
+            //             } 
+            //         } 
+            //     },
+            //     { $match : { count: 1 } }
+            //   ])
             return res.json({success: true, data: results ? results : {},Message:results ? "Sucessfully Don":"No Data Found"});
         }
         err.status=403;
@@ -148,8 +142,6 @@ exports.getstats=async(req,res,next)=>{
     }
     catch(err)
     {
-        const status=err.status || 500;
-        const message=err.message;
-        res.status(status).json({Sucess:false,Message:message});
+        next(err);
     }
 }
