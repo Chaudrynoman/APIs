@@ -3,7 +3,8 @@ const mongoose=require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user');
-const MONGO_URL="mongodb://localhost:27017/Assignment?retryWrites=true&w=majority";
+const dotenv = require("dotenv");
+dotenv.config();
 const cors=require('cors');
 const app=express();
 app.use(express.json());
@@ -17,7 +18,7 @@ app.use((error,req, res, next) => {
   res.status(status).json({Sucess:false,Message:message});
 });
 try{
-  mongoose.connect(MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true})
+  mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true})
 }
 catch(err){
   console.log(err);
