@@ -49,19 +49,19 @@ router.post(
     .isLength({ min: 5 })
     .isAlphanumeric()
     .trim(),
-    // body(
-    //   'Role',
-    //   "please enter only admin or user."
-    // )
-    // .custom((value, { req }) => {
-    //       if (!(value==="admin"|| value==="user")) {
-    //         return 'please enter only admin or user.';
-    //       }
-    //       next();
-    //   }
-    // )
-    // .isAlpha()
-    // .trim(),
+    body(
+      'Role',
+      "please enter only admin or user."
+    )
+    .custom((value, { req }) => {
+          if (!(value==="admin"|| value==="user")) {
+            throw new Error('please enter only admin or user.');
+          }
+          return true;
+      }
+    )
+    .isAlpha()
+    .trim(),
   ],
   usercontroller.postSignup
 );
@@ -77,8 +77,9 @@ router.put('/resetPassword',isAuth,[
     .trim()
     .custom((value, { req }) => {
       if (value===req.query.oldPassword) {
-        return 'newPassword must be different from old Password.';//change way not return
+        throw new Error ('newPassword must be different from old Password.');
       }
+      return true;
     }
   ),
 ],usercontroller.putPassword);
