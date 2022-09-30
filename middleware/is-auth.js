@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken');
 module.exports = (req, res, next) => {
-    const token=req.get('authorizations');
+    const token=req.get('Authorization');
     let decodedtoken;
     try{
         decodedtoken=jwt.verify(token,'securesecret')

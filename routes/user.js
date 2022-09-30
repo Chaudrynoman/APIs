@@ -1,5 +1,5 @@
-const {body} = require('express-validator/check');
-const {query} = require('express-validator/check');
+const {body} = require('express-validator');
+const {query} = require('express-validator');
 const express=require('express');
 const usercontroller=require('../controller/index');
 const isAuth = require('../middleware/is-auth');
@@ -84,4 +84,5 @@ router.put('/resetPassword',isAuth,[
   ),
 ],usercontroller.putPassword);
 router.get('/stats',isAuth,usercontroller.getstats);
+router.get('/tosearch',isAuth,usercontroller.getData);
 module.exports = router;

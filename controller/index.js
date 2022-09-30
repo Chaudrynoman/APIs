@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 const jwt=require('jsonwebtoken');
 const userModel = require('../models/user');
 const err= new Error();
@@ -142,6 +142,24 @@ exports.getstats=async(req,res,next)=>{
     }
     catch(err)
     {
+        next(err);
+    }
+    
+}
+exports.getData=async (req,res,next)=>{
+    try{
+        const text=req.query.text;
+        const email=req.query.email;
+        let user;
+        if(text){
+            user=await userModel.find( { $text: { $search: text } } );
+        }
+        if(email){
+            user=await userModel.find( { Email: email } );
+        }
+        return res.json({success: true, data: user ? user : {},Message: user ? "Sucessfully Don":"No Data Found"});
+    }
+    catch{
         next(err);
     }
 }
