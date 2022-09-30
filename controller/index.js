@@ -120,12 +120,16 @@ exports.getstats=async(req,res,next)=>{
         let totalPosts;
         const startIndex = pageNumber * limit;
         const endIndex = (pageNumber + 1) * limit;
+        // const sortMap = new Map();
+        // sortMap.set('Date', 1);
+        // // sortMap.set('Name', -1);
         const newuser = await userModel.findById(id).lean();
         if(newuser.Role==="admin"){
             totalPosts = await userModel.countDocuments().exec();
-            result.user=await userModel.where("Date").gte(previse).select("Name").sort("-_id")
+            result.user=await userModel.where("Date").gte(previse).select("Name")
             .skip(startIndex)
             .limit(limit)
+            .sort({Date: 1, Name: 1})
             .exec();
             result.totalPosts = totalPosts;
             if (startIndex > 0) {
@@ -141,7 +145,8 @@ exports.getstats=async(req,res,next)=>{
                 };
             }
             result.rowsPerPage = limit;
-            // const results = await userModel.aggregate([
+            
+            // result.user = await userModel.aggregate([
             //     { 
             //         $addFields: { 
             //             PreviousDate: { $subtract: [  today, (1000*60*60*24*30*6) ] } 
@@ -156,8 +161,27 @@ exports.getstats=async(req,res,next)=>{
             //             } 
             //         } 
             //     },
-            //     { $match : { count: 1 } }
-            //   ])
+            //     { $match : { count: 1 } },
+            //     { $sort : sortMap }
+            //   ]
+            // )
+            // .skip(startIndex)
+            // .limit(limit)
+            // .exec();
+            // result.totalPosts = totalPosts;
+            // if (startIndex > 0) {
+            //     result.previous = {
+            //         pageNumber: pageNumber - 1,
+            //         limit: limit,
+            //     };
+            // }
+            // if (endIndex < totalPosts) {
+            //     result.next = {
+            //         pageNumber: pageNumber + 1,
+            //         limit: limit,
+            //     };
+            // }
+            // result.rowsPerPage = limit;
             return res.json({success: true, data: result.user ? result : {},Message:result.user ? "Sucessfully Don":"No Data Found"});
         }
         err.status=403;
@@ -183,7 +207,7 @@ exports.getData=async (req,res,next)=>{
         if(text){
             totalPosts = await userModel.countDocuments({ $text: { $search: text } }).exec();
             result.user=await userModel.find( { $text: { $search: text } } )
-            .sort("-_id")
+            .sort({Date: 1, Name: 1})
             .skip(startIndex)
             .limit(limit)
             .exec();
@@ -192,7 +216,7 @@ exports.getData=async (req,res,next)=>{
         if(email){
             totalPosts = await userModel.countDocuments({ Email: email }).exec();
             result.user=await userModel.find( { Email: email } )
-            .sort("-_id")
+            .sort({Date: 1, Name: 1})
             .skip(startIndex)
             .limit(limit)
             .exec();
