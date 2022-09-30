@@ -114,9 +114,33 @@ exports.getstats=async(req,res,next)=>{
         const id=req.userId;
         const today = new Date();
         const previse=today-(1000*60*60*24*30*6);
+        const pageNumber = parseInt(req.query.pageNumber) || 0;
+        const limit = parseInt(req.query.limit) || 6;
+        const result = {};
+        let totalPosts;
+        const startIndex = pageNumber * limit;
+        const endIndex = (pageNumber + 1) * limit;
         const newuser = await userModel.findById(id).lean();
         if(newuser.Role==="admin"){
-            const results=await userModel.where("Date").gte(previse).select("Name");
+            totalPosts = await userModel.countDocuments().exec();
+            result.user=await userModel.where("Date").gte(previse).select("Name").sort("-_id")
+            .skip(startIndex)
+            .limit(limit)
+            .exec();
+            result.totalPosts = totalPosts;
+            if (startIndex > 0) {
+                result.previous = {
+                    pageNumber: pageNumber - 1,
+                    limit: limit,
+                };
+            }
+            if (endIndex < totalPosts) {
+                result.next = {
+                    pageNumber: pageNumber + 1,
+                    limit: limit,
+                };
+            }
+            result.rowsPerPage = limit;
             // const results = await userModel.aggregate([
             //     { 
             //         $addFields: { 
@@ -134,7 +158,7 @@ exports.getstats=async(req,res,next)=>{
             //     },
             //     { $match : { count: 1 } }
             //   ])
-            return res.json({success: true, data: results ? results : {},Message:results ? "Sucessfully Don":"No Data Found"});
+            return res.json({success: true, data: result.user ? result : {},Message:result.user ? "Sucessfully Don":"No Data Found"});
         }
         err.status=403;
         err.message="Your are not Authorized.";
@@ -150,14 +174,45 @@ exports.getData=async (req,res,next)=>{
     try{
         const text=req.query.text;
         const email=req.query.email;
-        let user;
+        const pageNumber = parseInt(req.query.pageNumber) || 0;
+        const limit = parseInt(req.query.limit) || 6;
+        const result = {};
+        let totalPosts;
+        const startIndex = pageNumber * limit;
+        const endIndex = (pageNumber + 1) * limit;
         if(text){
-            user=await userModel.find( { $text: { $search: text } } );
+            totalPosts = await userModel.countDocuments({ $text: { $search: text } }).exec();
+            result.user=await userModel.find( { $text: { $search: text } } )
+            .sort("-_id")
+            .skip(startIndex)
+            .limit(limit)
+            .exec();
+            
         }
         if(email){
-            user=await userModel.find( { Email: email } );
+            totalPosts = await userModel.countDocuments({ Email: email }).exec();
+            result.user=await userModel.find( { Email: email } )
+            .sort("-_id")
+            .skip(startIndex)
+            .limit(limit)
+            .exec();
         }
-        return res.json({success: true, data: user ? user : {},Message: user ? "Sucessfully Don":"No Data Found"});
+        
+        result.totalPosts = totalPosts;
+        if (startIndex > 0) {
+            result.previous = {
+                pageNumber: pageNumber - 1,
+                limit: limit,
+            };
+        }
+        if (endIndex < totalPosts) {
+            result.next = {
+                pageNumber: pageNumber + 1,
+                limit: limit,
+            };
+        }
+        result.rowsPerPage = limit;
+        return res.json({success: true, data: result.user ? result : {},Message: result.user ? "Sucessfully Don":"No Data Found"});
     }
     catch{
         next(err);
