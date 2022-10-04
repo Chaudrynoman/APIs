@@ -28,7 +28,8 @@ exports.postLogin = async(req, res, next) => {
                 },
                 'securesecret',
                 );
-                return res.status(200).json({Suceess:true,Message:"Sucessfully LogIn!",Token:token,value:token.id});
+                res.status(200).json({Suceess:true,Message:"Sucessfully LogIn!",Token:token,value:token.id});
+                return;
             }
             err.status=401;
             err.message="Password Incorrect!";
@@ -36,6 +37,7 @@ exports.postLogin = async(req, res, next) => {
     }
     catch(err){
         next(err);
+        return err;
     }
   };
   exports.postSignup = async(req, res, next) => {
@@ -64,10 +66,12 @@ exports.postLogin = async(req, res, next) => {
           Date: date
         });
         Newuser.save();
-        return res.status(201).json({Suceess:true,Message:"Sucessfully Registered!"});
+        res.status(201).json({Suceess:true,Message:"Sucessfully Registered!"});
+        return;
     }
     catch(err){
         next(err);
+        return err;
     }
 }
 exports.getprofile=async(req,res,next)=>{
@@ -75,11 +79,13 @@ exports.getprofile=async(req,res,next)=>{
     {
         const id=req.userId;
         const results = await userModel.findById(id).lean();
-        return res.json({success: true, data: results ? results : {},Message:results ? "Sucessfully Don":"No Data Found"});
+        res.status(200).json({success: true, data: results ? results : {},Message:results ? "Sucessfully Don":"No Data Found"});
+        return;
     }
     catch(err)
     {
         next(err);
+        return err;
     }
 }
 exports.putPassword=async(req,res,next)=>{
@@ -98,7 +104,8 @@ exports.putPassword=async(req,res,next)=>{
             const hashedPassword=await bcrypt.hash(newPassword, 12);
             newuser.Password=hashedPassword;
             newuser.save();
-            return res.status(200).json({Suceess:true,Message:"Sucessfully Password has been changed."});
+            res.status(200).json({Suceess:true,Message:"Sucessfully Password has been changed."});
+            return;
         }
         err.status=401;
         err.message="Incorrect old Password";
@@ -106,6 +113,7 @@ exports.putPassword=async(req,res,next)=>{
     }
     catch(err){
         next(err);
+        return err;
     }
 }
 exports.getstats=async(req,res,next)=>{
@@ -182,7 +190,8 @@ exports.getstats=async(req,res,next)=>{
             //     };
             // }
             // result.rowsPerPage = limit;
-            return res.json({success: true, data: result.user ? result : {},Message:result.user ? "Sucessfully Don":"No Data Found"});
+            res.status(200).json({success: true, data: result.user ? result : {},Message:result.user ? "Sucessfully Don":"No Data Found"});
+            return;
         }
         err.status=403;
         err.message="Your are not Authorized.";
@@ -191,6 +200,7 @@ exports.getstats=async(req,res,next)=>{
     catch(err)
     {
         next(err);
+        return err;
     }
     
 }
@@ -236,9 +246,11 @@ exports.getData=async (req,res,next)=>{
             };
         }
         result.rowsPerPage = limit;
-        return res.json({success: true, data: result.user ? result : {},Message: result.user ? "Sucessfully Don":"No Data Found"});
+        res.status(200).json({success: true, data: result.user ? result : {},Message: result.user ? "Sucessfully Don":"No Data Found"});
+        return;
     }
     catch{
         next(err);
+        return err;
     }
 }
