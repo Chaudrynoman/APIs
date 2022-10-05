@@ -37,3 +37,151 @@
     at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 2022-10-05 01:59:49 [32minfo[39m 
+2022-10-05 03:35:44 [32minfo[39m Running on port 3001
+2022-10-05 03:35:44 [32minfo[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:35:44 [33mwarn[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:35:44 [31merror[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:35:44 [32minfo[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:35:44 [33mwarn[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:35:44 [31merror[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:38:03 [31merror[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:38:03 [31merror[39m 127.0.0.1 - there's no place like home
+2022-10-05 03:39:10 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:39:10 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:40:40 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:40:40 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:40:40 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:40:40 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:41:11 [32minfo[39m Running on port 3001
+2022-10-05 03:41:11 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:41:11 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:41:11 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:41:11 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:41:11 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:41:11 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:42:12 [32minfo[39m Running on port 3001
+2022-10-05 03:42:12 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:42:12 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:42:12 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:42:12 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:42:12 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:42:12 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:42:12 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:42:54 [32minfo[39m Running on port 3001
+2022-10-05 03:42:54 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 03:42:54 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:42:54 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:42:54 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:42:54 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:42:54 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:42:54 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:42:54 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:43:19 [32minfo[39m Running on port 3001
+2022-10-05 03:43:19 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 03:43:19 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 03:43:19 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:43:19 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:43:19 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:43:19 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:43:19 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:43:19 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:43:19 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:43:50 [32minfo[39m Running on port 3001
+2022-10-05 03:43:50 [35msilly[39m 127.0.0.1 - there's no place like home1
+2022-10-05 03:43:50 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 03:43:50 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 03:43:50 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:43:50 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:43:50 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:43:50 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:43:50 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:43:50 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:43:50 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:44:50 [32minfo[39m Running on port 3001
+2022-10-05 03:44:50 [35msilly[39m 1
+2022-10-05 03:44:50 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 03:44:50 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 03:44:50 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:44:50 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:44:50 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:44:51 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:44:51 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:44:51 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:44:51 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:45:36 [32minfo[39m Running on port 3001
+2022-10-05 03:45:36 [35msilly[39m Choudry Computer
+2022-10-05 03:45:36 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 03:45:36 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 03:45:36 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 03:45:36 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 03:45:36 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 03:45:36 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 03:45:36 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 03:45:36 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 03:45:36 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:21:54 [32minfo[39m Running on port 3001
+2022-10-05 04:21:54 [35msilly[39m Choudry Computer
+2022-10-05 04:21:54 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 04:21:54 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 04:21:54 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 04:21:54 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 04:21:54 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 04:21:54 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 04:21:54 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 04:21:54 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:21:54 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:24:26 [32minfo[39m Running on port 3001
+2022-10-05 04:24:26 [35msilly[39m Choudry Computer
+2022-10-05 04:24:26 [34mdebug[39m Choudry Computer
+2022-10-05 04:24:26 [36mverbose[39m Choudry Computer
+2022-10-05 04:24:26 [32minfo[39m Choudry Computer
+2022-10-05 04:24:26 [33mwarn[39m Choudry Computer
+2022-10-05 04:24:26 [31merror[39m Choudry Computer
+2022-10-05 04:24:26 [32minfo[39m Choudry Computer
+2022-10-05 04:24:26 [33mwarn[39m Choudry Computer
+2022-10-05 04:24:26 [31merror[39m Choudry Computer
+2022-10-05 04:24:26 [32mhttp[39m Choudry Computer
+2022-10-05 04:25:25 [32minfo[39m Running on port 3001
+2022-10-05 04:25:25 [35msilly[39m Choudry Computer
+2022-10-05 04:25:25 [34mdebug[39m Choudry Computer
+2022-10-05 04:25:25 [36mverbose[39m Choudry Computer
+2022-10-05 04:25:25 [32minfo[39m Choudry Computer
+2022-10-05 04:25:25 [33mwarn[39m Choudry Computer
+2022-10-05 04:25:25 [31merror[39m Choudry Computer
+2022-10-05 04:25:25 [32minfo[39m Choudry Computer
+2022-10-05 04:25:25 [33mwarn[39m Choudry Computer
+2022-10-05 04:25:25 [31merror[39m Choudry Computer
+2022-10-05 04:25:25 [32mhttp[39m Choudry Computer
+2022-10-05 04:28:56 [32minfo[39m Running on port 3001
+2022-10-05 04:28:56 [35msilly[39m Choudry Computer
+2022-10-05 04:28:56 [34mdebug[39m Choudry Computer
+2022-10-05 04:28:56 [36mverbose[39m Choudry Computer
+2022-10-05 04:28:56 [32minfo[39m Choudry Computer
+2022-10-05 04:28:56 [33mwarn[39m Choudry Computer
+2022-10-05 04:28:56 [31merror[39m Choudry Computer
+2022-10-05 04:28:56 [32minfo[39m Choudry Computer
+2022-10-05 04:28:56 [33mwarn[39m Choudry Computer
+2022-10-05 04:28:56 [31merror[39m Choudry Computer
+2022-10-05 04:28:57 [32mhttp[39m Choudry Computer
+2022-10-05 04:29:47 [32minfo[39m Running on port 3001
+2022-10-05 04:29:47 [35msilly[39m Choudry Computer
+2022-10-05 04:29:47 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 04:29:47 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 04:29:47 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 04:29:47 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 04:29:47 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 04:29:47 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 04:29:47 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 04:29:47 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:29:47 [32mhttp[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:30:35 [32minfo[39m Running on port 3001
+2022-10-05 04:30:35 [35msilly[39m Choudry Computer
+2022-10-05 04:30:35 [34mdebug[39m 127.0.0.1 - there's no place like home2
+2022-10-05 04:30:35 [36mverbose[39m 127.0.0.1 - there's no place like home3
+2022-10-05 04:30:35 [32minfo[39m 127.0.0.1 - there's no place like home4
+2022-10-05 04:30:35 [33mwarn[39m 127.0.0.1 - there's no place like home5
+2022-10-05 04:30:35 [31merror[39m 127.0.0.1 - there's no place like home6
+2022-10-05 04:30:35 [32minfo[39m 127.0.0.1 - there's no place like home7
+2022-10-05 04:30:35 [33mwarn[39m 127.0.0.1 - there's no place like home8
+2022-10-05 04:30:35 [31merror[39m 127.0.0.1 - there's no place like home9
+2022-10-05 04:30:35 [32mhttp[39m 127.0.0.1 - there's no place like home9
