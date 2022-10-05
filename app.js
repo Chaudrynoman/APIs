@@ -6,6 +6,7 @@ const userRoutes = require('./routes/user');
 const dotenv = require("dotenv");
 dotenv.config();
 const cors=require('cors');
+const logger = require('./logger/app');
 const app=express();
 app.use(express.json());
 app.use(cors());
@@ -21,8 +22,8 @@ try{
   mongoose.connect(process.env.MONGO_URL,{useNewUrlParser: true, useUnifiedTopology: true})
 }
 catch(err){
-  console.log(err);
+  logger.error(err);
 }
 app.listen('3001', ()=>{
-  console.log("Running on port 3001");
+  logger.info("Running on port 3001");
 });

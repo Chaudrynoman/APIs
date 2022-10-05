@@ -1,0 +1,39 @@
+2022-10-04 23:59:42 [32minfo[39m Running on port 3001
+2022-10-05 00:02:38 [32minfo[39m Running on port 3001
+2022-10-05 00:02:49 [32minfo[39m Running on port 3001
+2022-10-05 00:05:01 [32minfo[39m Running on port 3001
+2022-10-05 00:06:21 [32minfo[39m Running on port 3001
+2022-10-05 01:22:36 [32minfo[39m Running on port 3001
+2022-10-05 01:23:53 [32minfo[39m Running on port 3001
+2022-10-05 01:25:04 [32minfo[39m Running on port 3001
+2022-10-05 01:25:19 [32minfo[39m Running on port 3001
+2022-10-05 01:28:19 [32minfo[39m Running on port 3001
+2022-10-05 01:36:00 [32minfo[39m 
+2022-10-05 01:42:27 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:42:37 [32minfo[39m 
+2022-10-05 01:44:06 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:44:16 [32minfo[39m 
+2022-10-05 01:45:00 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:45:10 [32minfo[39m 
+2022-10-05 01:45:22 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:45:32 [32minfo[39m 
+2022-10-05 01:52:24 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:52:34 [32minfo[39m 
+2022-10-05 01:56:55 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:57:05 [32minfo[39m E-Mail exists already, please pick a different one.
+2022-10-05 01:59:39 [32minfo[39m TypeError: Cannot read properties of null (reading 'Password')
+    at Object.exports.putPassword (D:\task1\controller\index.js:103:65)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-10-05 01:59:49 [32minfo[39m 
