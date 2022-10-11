@@ -1,9 +1,10 @@
-const {body} = require('express-validator');
-const {query} = require('express-validator');
-const express=require('express');
-const usercontroller=require('../controller/index');
+const { body } = require('express-validator');
+const { query } = require('express-validator');
+const express = require('express');
+const usercontroller = require('../controller/index');
 const isAuth = require('../middleware/is-auth');
-const router=express.Router();
+
+const router = express.Router();
 
 router.post(
   '/login',
@@ -15,9 +16,9 @@ router.post(
     body('Password', 'Password has to be valid.')
       .isLength({ min: 5 })
       .isAlphanumeric()
-      .trim()
+      .trim(),
   ],
-  usercontroller.postLogin
+  usercontroller.postLogin,
 );
 
 router.post(
@@ -38,35 +39,34 @@ router.post(
       .normalizeEmail(),
     body(
       'Name',
-      'Please enter a valid Name with Minimun 5 and maximun 15 Alphabats.'
+      'Please enter a valid Name with Minimun 5 and maximun 15 Alphabats.',
     )
-    .isLength({ min: 5 , max:15 })
-    .isAlpha(),
+      .isLength({ min: 5, max: 15 })
+      .isAlpha(),
     body(
       'Password',
-      'Please enter a Password with only numbers and text and at least 5 characters.'
+      'Please enter a Password with only numbers and text and at least 5 characters.',
     )
-    .isLength({ min: 5 })
-    .isAlphanumeric()
-    .trim(),
+      .isLength({ min: 5 })
+      .isAlphanumeric()
+      .trim(),
     body(
       'Role',
-      "please enter only admin or user."
+      'please enter only admin or user.',
     )
-    .custom((value, { req }) => {
-          if (!(value==="admin"|| value==="user")) {
-            throw new Error('please enter only admin or user.');
-          }
-          return true;
-      }
-    )
-    .isAlpha()
-    .trim(),
+      .custom((value) => {
+        if (!(value === 'admin' || value === 'user')) {
+          throw new Error('please enter only admin or user.');
+        }
+        return true;
+      })
+      .isAlpha()
+      .trim(),
   ],
-  usercontroller.postSignup
+  usercontroller.postSignup,
 );
-router.get('/profile',isAuth,usercontroller.getprofile);
-router.put('/resetPassword',isAuth,[
+router.get('/profile', isAuth, usercontroller.getprofile);
+router.put('/resetPassword', isAuth, [
   query('oldPassword', 'Please enter a Password with only numbers and text and at least 5 characters1.')
     .isLength({ min: 5 })
     .isAlphanumeric()
@@ -76,13 +76,12 @@ router.put('/resetPassword',isAuth,[
     .isAlphanumeric()
     .trim()
     .custom((value, { req }) => {
-      if (value===req.query.oldPassword) {
-        throw new Error ('newPassword must be different from old Password.');
+      if (value === req.query.oldPassword) {
+        throw new Error('newPassword must be different from old Password.');
       }
       return true;
-    }
-  ),
-],usercontroller.putPassword);
-router.get('/stats',isAuth,usercontroller.getstats);
-router.get('/tosearch',isAuth,usercontroller.getData);
+    }),
+], usercontroller.putPassword);
+router.get('/stats', isAuth, usercontroller.getstats);
+router.get('/tosearch', isAuth, usercontroller.getData);
 module.exports = router;
